@@ -1,0 +1,19 @@
+<?php
+
+function bean_user_actions_preprocess_entity(&$vars) {
+  if ($vars['entity_type'] == 'bean') {
+    if (bean_access('edit', $vars['bean'])) {
+      $vars['user_actions'][] = array(
+        'path' => 'block/' . $vars['bean']->delta . '/edit',
+        'title' => t('Edit'),
+        'is_primary' => TRUE,
+      );
+    }
+    if (bean_access('delete', $vars['bean'])) {
+      $vars['user_actions'][] = array(
+        'path' => 'block/' . $vars['bean']->delta . '/delete',
+        'title' => t('Delete'),
+      );
+    }
+  }
+}

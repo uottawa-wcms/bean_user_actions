@@ -1,0 +1,7 @@
+name = Bean User Action Integration
+description = "Provides user actions for Beans"
+core = 7.x
+package = Bean
+
+dependency[] = bean
+dependency[] = user_actions
